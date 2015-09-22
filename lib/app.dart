@@ -11,7 +11,9 @@ import 'package:todomvc/components/todo_cmp.dart';
     </section>
     <footer id="info">
 			<p>Double-click to edit a todo.</p>
-			<p>Under construction, source at <a href="https://github.com/ng2-dart-samples/todomvc">github.</a></p>
+			<p>Under construction, source at
+			  <a href="https://github.com/ng2-dart-samples/todomvc">github.</a>
+			</p>
 		</footer>
     ''',
     directives: const [CORE_DIRECTIVES, TodoComponent])

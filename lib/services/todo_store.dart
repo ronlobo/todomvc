@@ -24,6 +24,23 @@ class TodoStore {
   }
 
   List<Todo> _getCompleted() => todos.where((todo) => todo.completed).toList();
+
+  List<Todo> _getActive() => todos.where((todo) => !todo.completed).toList();
+
+  String filter = 'all';
+
+  List<Todo> get filtered {
+    switch (filter) {
+      case 'completed':
+        return _getCompleted();
+      case 'active':
+        return _getActive();
+      case 'all':
+        return todos;
+      default:
+        return todos;
+    }
+  }
 }
 
 class Todo {

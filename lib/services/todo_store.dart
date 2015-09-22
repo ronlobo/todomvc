@@ -1,4 +1,4 @@
-library untitled34.services.todo_store;
+library todomvc.services.todo_store;
 
 import 'package:angular2/angular2.dart' show Injectable;
 import 'package:uuid/uuid.dart';
@@ -11,6 +11,10 @@ class TodoStore {
 
   bool allCompleted() => todos.length == getCompleted().length;
 
+  List<Todo> getActive() => todos.where((todo) => !todo.completed).toList();
+
+  List<Todo> getCompleted() => todos.where((todo) => todo.completed).toList();
+
   void remove(String uid) => todos.removeWhere((todo) => todo.uid == uid);
 
   void removeCompleted() => todos.removeWhere((todo) => todo.completed);
@@ -22,11 +26,6 @@ class TodoStore {
     Todo todo = todos.firstWhere((todo) => todo.uid == uid);
     todo.completed = !todo.completed;
   }
-
-  List<Todo> getCompleted() => todos.where((todo) => todo.completed).toList();
-
-  List<Todo> getActive() => todos.where((todo) => !todo.completed).toList();
-
 }
 
 class Todo {

@@ -1,19 +1,17 @@
-library untitled34.component.todo_cmp;
+library todomvc.component.todo_cmp;
 
 import 'dart:html' show InputElement;
 
 import 'package:angular2/angular2.dart';
-import 'package:todomvc/services/todo_store.dart' show Todo, TodoStore;
 import 'package:angular2/router.dart';
+import 'package:todomvc/services/todo_store.dart' show Todo, TodoStore;
 
 @Component(selector: 'todo-cmp', viewBindings: const [TodoStore])
 @View(templateUrl: 'todo_cmp.html', directives: const [CORE_DIRECTIVES])
 class TodoComponent {
-  TodoStore todoStore;
-
   Router router;
-
   String filter;
+  TodoStore todoStore;
 
   TodoComponent(this.todoStore, this.router) {
     router.parent.subscribe((String value) => filter = value);

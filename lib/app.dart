@@ -1,8 +1,8 @@
-import 'dart:html';
+library todo_mvc.app;
 
 import 'package:angular2/angular2.dart';
-import 'package:todomvc/components/todo_cmp.dart';
 import 'package:angular2/router.dart';
+import 'package:todomvc/components/todo_cmp.dart';
 
 @Component(selector: 'app')
 @View(

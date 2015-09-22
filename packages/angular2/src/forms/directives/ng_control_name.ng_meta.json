@@ -1,0 +1,33 @@
+{
+  "NgControlName": {
+    "kind": "type",
+    "value": {
+      "id": "NgControlName",
+      "selector": "[ng-control]",
+      "compileChildren": true,
+      "hostProperties": {},
+      "hostListeners": {},
+      "hostAttributes": {},
+      "properties": [
+        "name: ngControl",
+        "model: ngModel"
+      ],
+      "readAttributes": [],
+      "type": 0,
+      "exportAs": "form",
+      "callOnDestroy": true,
+      "callDoCheck": false,
+      "callOnInit": false,
+      "callOnChanges": true,
+      "callAfterContentInit": false,
+      "callAfterContentChecked": false,
+      "callAfterViewInit": false,
+      "callAfterViewChecked": false,
+      "events": [
+        "update: ngModel"
+      ],
+      "changeDetection": null,
+      "version": 1
+    }
+  }
+}

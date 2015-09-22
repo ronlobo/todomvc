@@ -1,0 +1,33 @@
+{
+  "NgFormControl": {
+    "kind": "type",
+    "value": {
+      "id": "NgFormControl",
+      "selector": "[ng-form-control]",
+      "compileChildren": true,
+      "hostProperties": {},
+      "hostListeners": {},
+      "hostAttributes": {},
+      "properties": [
+        "form: ngFormControl",
+        "model: ngModel"
+      ],
+      "readAttributes": [],
+      "type": 0,
+      "exportAs": "form",
+      "callOnDestroy": false,
+      "callDoCheck": false,
+      "callOnInit": false,
+      "callOnChanges": true,
+      "callAfterContentInit": false,
+      "callAfterContentChecked": false,
+      "callAfterViewInit": false,
+      "callAfterViewChecked": false,
+      "events": [
+        "update: ngModel"
+      ],
+      "changeDetection": null,
+      "version": 1
+    }
+  }
+}

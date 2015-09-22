@@ -1,0 +1,38 @@
+<header class="header">
+  <h1>todos</h1>
+  <input class="new-todo" placeholder="What needs to be done?" autofocus
+         (keyup.enter)="addTodo($event.target)">
+</header>
+<section class="main">
+  <input class="toggle-all" type="checkbox" [checked]="todoStore.allCompleted()"
+         (click)="todoStore.setAllTo($event.target.checked)" *ng-if="todoStore.todos.isNotEmpty">
+  <label for="toggle-all">Mark all as complete</label>
+  <ul class="todo-list">
+    <li *ng-for="#todo of todoStore.todos" [class.completed]="todo.completed"
+        [class.editing]="todo.editing">
+      <div class="view">
+        <input class="toggle" type="checkbox" (click)="todoStore.toggleCompletion(todo.uid)"
+               [checked]="todo.completed">
+        <label>{{todo.title}}</label>
+        <button class="destroy" (click)="todoStore.remove(todo.uid)"></button>
+      </div>
+    </li>
+  </ul>
+</section>
+<footer class="footer">
+  <span class="todo-count"><strong>{{ todoStore.todos.length }}</strong> item left</span>
+  <!--<ul class="filters">-->
+  <!--<li>-->
+  <!--<a class="selected" href="#/">All</a>-->
+  <!--</li>-->
+  <!--<li>-->
+  <!--<a href="#/active">Active</a>-->
+  <!--</li>-->
+  <!--<li>-->
+  <!--<a href="#/completed">Completed</a>-->
+  <!--</li>-->
+  <!--</ul>-->
+  <button (click)="todoStore.removeCompleted()" class="clear-completed">Clear
+    completed
+  </button>
+</footer>

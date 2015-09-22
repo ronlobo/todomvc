@@ -2,7 +2,7 @@ library untitled34.component.todo_cmp;
 
 import 'package:angular2/angular2.dart';
 
-import 'package:untitled34/services/todo_store.dart' show Todo, TodoStore;
+import 'package:todomvc/services/todo_store.dart' show Todo, TodoStore;
 import 'dart:html' show InputElement;
 
 @Component(selector: 'todo-cmp', viewBindings: const [TodoStore])

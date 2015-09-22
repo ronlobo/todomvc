@@ -1,5 +1,5 @@
 import 'package:angular2/bootstrap.dart';
 
-import 'package:untitled34/app.dart';
+import 'package:todomvc/app.dart';
 
 main() => bootstrap(App);

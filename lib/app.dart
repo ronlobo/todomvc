@@ -9,7 +9,7 @@ import 'package:todomvc/components/todo_cmp.dart';
     <section class="todoapp">
       <todo-cmp></todo-cmp>
     </section>
-   <footer id="info">
+    <footer id="info">
 			<p>Double-click to edit a todo.</p>
 			<p>Under construction, source at <a href="https://github.com/ng2-dart-samples/todomvc">github.</a></p>
 		</footer>

@@ -35,8 +35,6 @@ class TodoStore {
         return _getCompleted();
       case 'active':
         return _getActive();
-      case 'all':
-        return todos;
       default:
         return todos;
     }

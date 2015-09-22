@@ -4,13 +4,22 @@ import 'dart:html' show InputElement;
 
 import 'package:angular2/angular2.dart';
 import 'package:todomvc/services/todo_store.dart' show Todo, TodoStore;
+import 'package:angular2/router.dart';
 
 @Component(selector: 'todo-cmp', viewBindings: const [TodoStore])
 @View(templateUrl: 'todo_cmp.html', directives: const [CORE_DIRECTIVES])
 class TodoComponent {
   TodoStore todoStore;
 
-  TodoComponent(this.todoStore);
+  Router router;
+
+  TodoComponent(this.todoStore, this.router) {
+    router.subscribe((value) {
+      print("Route changed to: $value");
+      todoStore.filter = value;
+    });
+  }
+
 
   addTodo(InputElement input) {
     if (input.value.trim().isNotEmpty) {

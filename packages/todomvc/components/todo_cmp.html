@@ -18,8 +18,8 @@
         <button class="destroy" (click)="todoStore.remove(todo.uid)"></button>
       </div>
       <input class="edit" *ng-if="todo.editing" [value]="todo.title"
-             (blur)="stopEditing(todo, $event.target.value)"
-             (keyup.enter)="stopEditing(todo, $event.target.value)"
+             (blur)="saveEditing(todo, $event.target.value)"
+             (keyup.enter)="saveEditing(todo, $event.target.value)"
              (keyup.escape)="cancelEditing(todo)">
     </li>
   </ul>

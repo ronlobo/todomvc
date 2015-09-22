@@ -13,9 +13,11 @@
       <div class="view">
         <input class="toggle" type="checkbox" (click)="todoStore.toggleCompletion(todo.uid)"
                [checked]="todo.completed">
-        <label>{{todo.title}}</label>
+        <label (dblclick)="todo.editTodo()">{{todo.title}}</label>
         <button class="destroy" (click)="todoStore.remove(todo.uid)"></button>
       </div>
+      <input class="edit" *ng-if="todo.editing" [value]="todo.title" (blur)="stopEditing(todo, $event.target.value)"
+             (keyup.enter)="stopEditing(todo, $event.target.value)" (keyup.escape)="cancelEditing(todo)">
     </li>
   </ul>
 </section>

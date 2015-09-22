@@ -204,6 +204,12 @@ label[for='toggle-all'] {
   display: block;
   line-height: 1.2;
   transition: color 0.4s;
+
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .todo-list li.completed label {

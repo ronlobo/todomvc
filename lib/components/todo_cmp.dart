@@ -1,9 +1,9 @@
 library untitled34.component.todo_cmp;
 
-import 'package:angular2/angular2.dart';
-
-import 'package:todomvc/services/todo_store.dart' show Todo, TodoStore;
 import 'dart:html' show InputElement;
+
+import 'package:angular2/angular2.dart';
+import 'package:todomvc/services/todo_store.dart' show Todo, TodoStore;
 
 @Component(selector: 'todo-cmp', viewBindings: const [TodoStore])
 @View(templateUrl: 'todo_cmp.html', directives: const [CORE_DIRECTIVES])
@@ -19,6 +19,10 @@ class TodoComponent {
     }
   }
 
+  void cancelEditing(Todo todo) {
+    todo.editing = false;
+  }
+
   void saveEditing(Todo todo, String title) {
     todo.editing = false;
 
@@ -27,9 +31,5 @@ class TodoComponent {
     } else {
       todo.title = title;
     }
-  }
-
-  void cancelEditing(Todo todo) {
-    todo.editing = false;
   }
 }

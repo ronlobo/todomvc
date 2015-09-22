@@ -34,5 +34,7 @@ class Todo {
 
   Todo(this.title);
 
-  void editTodo() { editing = true; }
+  void editTodo() {
+    editing = true;
+  }
 }

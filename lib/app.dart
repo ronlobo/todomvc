@@ -1,7 +1,8 @@
-import 'package:angular2/angular2.dart';
 import 'dart:html';
-import 'package:uuid/uuid.dart';
+
+import 'package:angular2/angular2.dart';
 import 'package:todomvc/components/todo_cmp.dart';
+import 'package:uuid/uuid.dart';
 
 @Component(selector: 'app')
 @View(

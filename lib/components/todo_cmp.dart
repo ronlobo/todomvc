@@ -19,7 +19,7 @@ class TodoComponent {
     }
   }
 
-  void stopEditing(Todo todo, String title) {
+  void saveEditing(Todo todo, String title) {
     todo.editing = false;
 
     if (title.isEmpty) {

@@ -23,12 +23,4 @@ import 'package:angular2/router.dart';
   const Route(path: '/active', component: TodoComponent, as: 'active'),
   const Route(path: '/completed', component: TodoComponent, as: 'completed'),
 ])
-class App {
-  Router router;
-
-  App(this.router) {
-    router.subscribe((value) {
-      print("App component is listening");
-    });
-  }
-}
+class App {}

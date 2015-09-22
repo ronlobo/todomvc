@@ -9,7 +9,7 @@ class TodoStore {
 
   void add(String title) => todos.add(new Todo(title));
 
-  bool allCompleted() => todos.length == _getCompleted().length;
+  bool allCompleted() => todos.length == getCompleted().length;
 
   void remove(String uid) => todos.removeWhere((todo) => todo.uid == uid);
 
@@ -23,22 +23,10 @@ class TodoStore {
     todo.completed = !todo.completed;
   }
 
-  List<Todo> _getCompleted() => todos.where((todo) => todo.completed).toList();
+  List<Todo> getCompleted() => todos.where((todo) => todo.completed).toList();
 
-  List<Todo> _getActive() => todos.where((todo) => !todo.completed).toList();
+  List<Todo> getActive() => todos.where((todo) => !todo.completed).toList();
 
-  String filter = 'all';
-
-  List<Todo> get filtered {
-    switch (filter) {
-      case 'completed':
-        return _getCompleted();
-      case 'active':
-        return _getActive();
-      default:
-        return todos;
-    }
-  }
 }
 
 class Todo {

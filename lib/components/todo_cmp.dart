@@ -13,8 +13,21 @@ class TodoComponent {
 
   Router router;
 
+  String filter;
+
   TodoComponent(this.todoStore, this.router) {
-    router.parent.subscribe((String value) => todoStore.filter = value);
+    router.parent.subscribe((String value) => filter = value);
+  }
+
+  List<Todo> get filteredTodos {
+    switch (filter) {
+      case 'completed':
+        return todoStore.getCompleted();
+      case 'active':
+        return todoStore.getActive();
+      default:
+        return todoStore.todos;
+    }
   }
 
   addTodo(InputElement input) {

@@ -8,6 +8,7 @@ import 'package:angular2/router.dart';
 
 @Component(selector: 'todo-cmp', viewBindings: const [TodoStore])
 @View(templateUrl: 'todo_cmp.html', directives: const [CORE_DIRECTIVES])
+
 class TodoComponent {
   TodoStore todoStore;
 
@@ -15,11 +16,9 @@ class TodoComponent {
 
   TodoComponent(this.todoStore, this.router) {
     router.subscribe((value) {
-      print("Route changed to: $value");
-      todoStore.filter = value;
+      print("Is todo component listening ?");
     });
   }
-
 
   addTodo(InputElement input) {
     if (input.value.trim().isNotEmpty) {

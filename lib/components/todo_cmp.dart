@@ -11,7 +11,6 @@ class TodoComponent {
 
   TodoStore todoStore;
 
-
   TodoComponent(this.todoStore, RouteParams routeParams) {
     todoStore.filter = routeParams.get('filter');
   }
@@ -36,7 +35,7 @@ class TodoComponent {
     todoStore.remove(todo.uid);
   }
 
-  toggleCompletion(Todo todo) {
+  void toggleCompletion(Todo todo) {
     todoStore.toggleCompletion(todo.uid);
   }
 }

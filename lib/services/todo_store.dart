@@ -60,7 +60,7 @@ class TodoStore {
     saveTodos();
   }
 
-  saveEditing(Todo todo, String title) {
+  void saveEditing(Todo todo, String title) {
     todo.editing = false;
 
     if (title.isEmpty) {
@@ -71,15 +71,17 @@ class TodoStore {
     saveTodos();
   }
 
-  saveTodos() => store['todomvc'] = toJson();
+  void saveTodos() {
+    store['todomvc'] = JSON.encode(toJson());
+  }
 
-  loadTodos() {
+  void loadTodos() {
     todos = JSON.decode(store['todomvc'])
         .map((json) => new Todo.fromJSON(json))
         .toList();
   }
 
-  toJson() => JSON.encode(todos.map((t) => t.toJson()).toList());
+  toJson() => todos.map((t) => t.toJson()).toList();
 }
 
 class Todo {
@@ -95,5 +97,5 @@ class Todo {
         title = json['title'],
         completed = json['completed'];
 
-  toJson() => {'title': title, 'completed': completed};
+  Map toJson() => {'title': title, 'completed': completed};
 }

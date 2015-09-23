@@ -18,7 +18,5 @@ import 'package:todomvc/components/todo_cmp.dart';
     </footer>
     ''',
     directives: const [ROUTER_DIRECTIVES, CORE_DIRECTIVES, TodoComponent])
-@RouteConfig(const [
-  const Route(path: '/:filter', component: TodoComponent)
-])
+@RouteConfig(const [const Route(path: '/:filter', component: TodoComponent)])
 class App {}

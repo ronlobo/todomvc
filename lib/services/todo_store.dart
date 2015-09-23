@@ -1,10 +1,10 @@
 library todomvc.services.todo_store;
 
-import 'package:angular2/angular2.dart' show Injectable;
-import 'package:uuid/uuid.dart';
 import 'dart:convert';
 import 'dart:html';
 
+import 'package:angular2/angular2.dart' show Injectable;
+import 'package:uuid/uuid.dart';
 
 Storage get store => window.localStorage;
 
@@ -35,6 +35,19 @@ class TodoStore {
     saveTodos();
   }
 
+  bool allCompleted() => todos.length == getCompleted().length;
+
+  List<Todo> getActive() => todos.where((todo) => !todo.completed).toList();
+
+  List<Todo> getCompleted() => todos.where((todo) => todo.completed).toList();
+
+  void loadTodos() {
+    todos = JSON
+        .decode(store['todomvc'])
+        .map((json) => new Todo.fromJSON(json))
+        .toList();
+  }
+
   void remove(String uid) {
     todos.removeWhere((todo) => todo.uid == uid);
     saveTodos();
@@ -42,21 +55,6 @@ class TodoStore {
 
   void removeCompleted() {
     todos.removeWhere((todo) => todo.completed);
-    saveTodos();
-  }
-
-  List<Todo> getActive() => todos.where((todo) => !todo.completed).toList();
-
-  List<Todo> getCompleted() => todos.where((todo) => todo.completed).toList();
-
-  bool allCompleted() => todos.length == getCompleted().length;
-
-  void setAllTo(bool completed) =>
-      todos.forEach((Todo t) => t.completed = completed);
-
-  void toggleCompletion(String uid) {
-    Todo todo = todos.firstWhere((todo) => todo.uid == uid);
-    todo.completed = !todo.completed;
     saveTodos();
   }
 
@@ -75,10 +73,13 @@ class TodoStore {
     store['todomvc'] = JSON.encode(toJson());
   }
 
-  void loadTodos() {
-    todos = JSON.decode(store['todomvc'])
-        .map((json) => new Todo.fromJSON(json))
-        .toList();
+  void setAllTo(bool completed) =>
+      todos.forEach((Todo t) => t.completed = completed);
+
+  void toggleCompletion(String uid) {
+    Todo todo = todos.firstWhere((todo) => todo.uid == uid);
+    todo.completed = !todo.completed;
+    saveTodos();
   }
 
   toJson() => todos.map((t) => t.toJson()).toList();
@@ -93,8 +94,7 @@ class Todo {
   Todo(this.title);
 
   Todo.fromJSON(Map json)
-      :
-        title = json['title'],
+      : title = json['title'],
         completed = json['completed'];
 
   Map toJson() => {'title': title, 'completed': completed};

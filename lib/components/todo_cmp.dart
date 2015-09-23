@@ -9,7 +9,6 @@ import 'dart:async';
 @Component(selector: 'todo-cmp', viewBindings: const [TodoStore])
 @View(templateUrl: 'todo_cmp.html', directives: const [CORE_DIRECTIVES])
 class TodoComponent {
-
   TodoStore todoStore;
 
   TodoComponent(this.todoStore, RouteParams routeParams) {
@@ -19,9 +18,7 @@ class TodoComponent {
   String get filter => todoStore.filter;
 
   addTodo(InputElement input) {
-    if (input.value
-        .trim()
-        .isNotEmpty) {
+    if (input.value.trim().isNotEmpty) {
       todoStore.add(input.value);
       input.value = '';
     }

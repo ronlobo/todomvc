@@ -1,0 +1,30 @@
+{
+  "NgStyle": {
+    "kind": "type",
+    "value": {
+      "id": "NgStyle",
+      "selector": "[ng-style]",
+      "compileChildren": true,
+      "hostProperties": {},
+      "hostListeners": {},
+      "hostAttributes": {},
+      "properties": [
+        "rawStyle: ng-style"
+      ],
+      "readAttributes": [],
+      "type": 0,
+      "exportAs": null,
+      "callOnDestroy": false,
+      "callDoCheck": true,
+      "callOnInit": false,
+      "callOnChanges": false,
+      "callAfterContentInit": false,
+      "callAfterContentChecked": false,
+      "callAfterViewInit": false,
+      "callAfterViewChecked": false,
+      "events": [],
+      "changeDetection": null,
+      "version": 1
+    }
+  }
+}

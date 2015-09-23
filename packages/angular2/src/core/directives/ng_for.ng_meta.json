@@ -1,0 +1,30 @@
+{
+  "NgFor": {
+    "kind": "type",
+    "value": {
+      "id": "NgFor",
+      "selector": "[ng-for][ng-for-of]",
+      "compileChildren": true,
+      "hostProperties": {},
+      "hostListeners": {},
+      "hostAttributes": {},
+      "properties": [
+        "ngForOf"
+      ],
+      "readAttributes": [],
+      "type": 0,
+      "exportAs": null,
+      "callOnDestroy": false,
+      "callDoCheck": true,
+      "callOnInit": false,
+      "callOnChanges": false,
+      "callAfterContentInit": false,
+      "callAfterContentChecked": false,
+      "callAfterViewInit": false,
+      "callAfterViewChecked": false,
+      "events": [],
+      "changeDetection": null,
+      "version": 1
+    }
+  }
+}

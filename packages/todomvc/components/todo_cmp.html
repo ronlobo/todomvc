@@ -1,0 +1,29 @@
+<html><head></head><body><header class="header">
+  <h1>todos</h1>
+  <input class="new-todo" placeholder="What needs to be done?" (keyup.enter)="addTodo($event.target)" autofocus="">
+</header>
+<section class="main" *ng-if="!noTodos">
+  <input class="toggle-all" type="checkbox" [checked]="todoStore.allCompleted()" (click)="todoStore.setAllTo($event.target.checked)">
+  <label for="toggle-all">Mark all as complete</label>
+  <ul class="todo-list">
+    <li *ng-for="#todo of todoStore.filteredTodos" [class.completed]="todo.completed" [class.editing]="todo.editing">
+      <div class="view">
+        <input class="toggle" type="checkbox" (click)="toggleCompletion(todo)" [checked]="todo.completed">
+        <label (dblclick)="todo.editing = true; focus(i)">{{todo.title}}</label>
+        <button class="destroy" (click)="removeTodo(todo)"></button>
+      </div>
+      <input #i="" class="edit" [value]="todo.title" (blur)="todoStore.saveEditing(todo, $event.target.value)" (keyup.enter)="todoStore.saveEditing(todo, $event.target.value)" (keyup.escape)="i.value = todo.title; todo.editing = false;">
+    </li>
+  </ul>
+</section>
+<footer class="footer" *ng-if="!noTodos">
+  <span class="todo-count"><strong>{{ todoStore.todos.length }}</strong>
+    {{ todoStore.todos.length == 1 ? 'item' : 'items' }} left</span>
+    <ul class="filters">
+        <li><a [class.selected]="filter.isEmpty" href="#/">All</a></li>
+        <li><a [class.selected]="filter == 'active'" href="#/active">Active</a></li>
+        <li><a [class.selected]="filter == 'completed'" href="#/completed">Completed</a></li>
+    </ul>
+  <button class="clear-completed" *ng-if="todoStore.getCompleted().isNotEmpty" (click)="todoStore.removeCompleted()">Clear completed</button>
+</footer>
+</body></html>

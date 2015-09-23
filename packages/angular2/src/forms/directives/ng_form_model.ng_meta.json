@@ -1,0 +1,34 @@
+{
+  "NgFormModel": {
+    "kind": "type",
+    "value": {
+      "id": "NgFormModel",
+      "selector": "[ng-form-model]",
+      "compileChildren": true,
+      "hostProperties": {},
+      "hostListeners": {
+        "submit": "onSubmit()"
+      },
+      "hostAttributes": {},
+      "properties": [
+        "form: ng-form-model"
+      ],
+      "readAttributes": [],
+      "type": 0,
+      "exportAs": "form",
+      "callOnDestroy": false,
+      "callDoCheck": false,
+      "callOnInit": false,
+      "callOnChanges": true,
+      "callAfterContentInit": false,
+      "callAfterContentChecked": false,
+      "callAfterViewInit": false,
+      "callAfterViewChecked": false,
+      "events": [
+        "ngSubmit"
+      ],
+      "changeDetection": null,
+      "version": 1
+    }
+  }
+}

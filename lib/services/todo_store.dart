@@ -70,7 +70,7 @@ class TodoStore {
   }
 
   void saveTodos() {
-    store['todomvc'] = JSON.encode(toJson());
+    store['todomvc'] = JSON.encode(todos);
   }
 
   void setAllTo(bool completed) =>
@@ -81,8 +81,6 @@ class TodoStore {
     todo.completed = !todo.completed;
     saveTodos();
   }
-
-  toJson() => todos.map((t) => t.toJson()).toList();
 }
 
 class Todo {

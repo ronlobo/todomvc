@@ -19,8 +19,6 @@ import 'package:todomvc/components/todo_cmp.dart';
     ''',
     directives: const [ROUTER_DIRECTIVES, CORE_DIRECTIVES, TodoComponent])
 @RouteConfig(const [
-  const Route(path: '/', component: TodoComponent, as: 'all'),
-  const Route(path: '/active', component: TodoComponent, as: 'active'),
-  const Route(path: '/completed', component: TodoComponent, as: 'completed'),
+  const Route(path: '/:filter', component: TodoComponent)
 ])
 class App {}

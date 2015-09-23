@@ -1,7 +1,6 @@
 library todomvc.component.todo_cmp;
 
-import 'dart:html' show InputElement;
-
+import 'dart:html';
 import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 import 'package:todomvc/services/todo_store.dart' show Todo, TodoStore;
@@ -9,43 +8,35 @@ import 'package:todomvc/services/todo_store.dart' show Todo, TodoStore;
 @Component(selector: 'todo-cmp', viewBindings: const [TodoStore])
 @View(templateUrl: 'todo_cmp.html', directives: const [CORE_DIRECTIVES])
 class TodoComponent {
-  Router router;
-  String filter;
+
   TodoStore todoStore;
 
-  TodoComponent(this.todoStore, this.router) {
-    router.parent.subscribe((String value) => filter = value);
+
+  TodoComponent(this.todoStore, RouteParams routeParams) {
+    todoStore.filter = routeParams.get('filter');
   }
 
-  List<Todo> get filteredTodos {
-    switch (filter) {
-      case 'completed':
-        return todoStore.getCompleted();
-      case 'active':
-        return todoStore.getActive();
-      default:
-        return todoStore.todos;
-    }
-  }
+  String get filter => todoStore.filter;
 
   addTodo(InputElement input) {
-    if (input.value.trim().isNotEmpty) {
+    if (input.value
+        .trim()
+        .isNotEmpty) {
       todoStore.add(input.value);
       input.value = '';
     }
   }
 
-  void cancelEditing(Todo todo) {
-    todo.editing = false;
+  focus(Todo todo, InputElement i) {
+    todo.editing = true;
+    i.setSelectionRange(i.selectionStart,i.selectionEnd);
   }
 
-  void saveEditing(Todo todo, String title) {
-    todo.editing = false;
+  void removeTodo(Todo todo) {
+    todoStore.remove(todo.uid);
+  }
 
-    if (title.isEmpty) {
-      todoStore.remove(todo.uid);
-    } else {
-      todo.title = title;
-    }
+  toggleCompletion(Todo todo) {
+    todoStore.toggleCompletion(todo.uid);
   }
 }

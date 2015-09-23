@@ -9,7 +9,7 @@ import 'package:todomvc/components/todo_cmp.dart';
     template: '''
     <div class="github-fork-ribbon-wrapper right">
         <div class="github-fork-ribbon">
-            <a href="https://github.com/simonwhitaker/github-fork-ribbon-css">Fork me on GitHub</a>
+            <a href="https://github.com/ng2-dart-samples/todomvc">Fork me on GitHub</a>
         </div>
     </div>
 		<section class="todoapp">

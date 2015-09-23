@@ -21,7 +21,7 @@ import 'package:todomvc/components/todo_cmp.dart';
 	    <p>Source at <a href="https://github.com/ng2-dart-samples/todomvc">github.</a></p>
 	    <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
     </footer>
-''',
+    ''',
     directives: const [ROUTER_DIRECTIVES, CORE_DIRECTIVES, TodoComponent])
 @RouteConfig(const [const Route(path: '/:filter', component: TodoComponent)])
 class App {}

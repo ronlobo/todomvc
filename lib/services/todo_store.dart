@@ -14,7 +14,7 @@ class TodoStore {
   String filter;
 
   TodoStore() {
-    if (store['todomvc'] != null) {
+    if (store['todos-angular2-dart'] != null) {
       loadTodos();
     }
   }
@@ -43,7 +43,7 @@ class TodoStore {
 
   void loadTodos() {
     todos = JSON
-        .decode(store['todomvc'])
+        .decode(store['todos-angular2-dart'])
         .map((json) => new Todo.fromJSON(json))
         .toList();
   }
@@ -70,7 +70,7 @@ class TodoStore {
   }
 
   void saveTodos() {
-    store['todomvc'] = JSON.encode(todos);
+    store['todos-angular2-dart'] = JSON.encode(todos);
   }
 
   void setAllTo(bool completed) =>

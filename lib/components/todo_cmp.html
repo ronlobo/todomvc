@@ -2,9 +2,9 @@
   <h1>todos</h1>
   <input class="new-todo" placeholder="What needs to be done?" (keyup.enter)="addTodo($event.target)" autofocus>
 </header>
-<section class="main">
+<section class="main" *ng-if="!noTodos">
   <input  class="toggle-all" type="checkbox" [checked]="todoStore.allCompleted()"
-         (click)="todoStore.setAllTo($event.target.checked)" *ng-if="todoStore.todos.isNotEmpty">
+         (click)="todoStore.setAllTo($event.target.checked)">
   <label for="toggle-all">Mark all as complete</label>
   <ul class="todo-list">
     <li *ng-for="#todo of todoStore.filteredTodos"
@@ -23,7 +23,7 @@
     </li>
   </ul>
 </section>
-<footer class="footer">
+<footer class="footer" *ng-if="!noTodos">
   <span class="todo-count"><strong>{{ todoStore.todos.length }}</strong>
     {{ todoStore.todos.length == 1 ? 'item' : 'items' }} left</span>
     <ul class="filters">
@@ -31,5 +31,5 @@
         <li><a [class.selected]="filter == 'active'" href="#/active">Active</a></li>
         <li><a [class.selected]="filter == 'completed'" href="#/completed">Completed</a></li>
     </ul>
-  <button class="clear-completed" (click)="todoStore.removeCompleted()">Clear completed</button>
+  <button class="clear-completed" *ng-if="todoStore.getCompleted().isNotEmpty" (click)="todoStore.removeCompleted()">Clear completed</button>
 </footer>

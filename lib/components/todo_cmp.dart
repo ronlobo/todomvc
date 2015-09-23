@@ -15,6 +15,8 @@ class TodoComponent {
     todoStore.filter = routeParams.get('filter');
   }
 
+	bool get noTodos => todoStore.todos.isEmpty;
+
   String get filter => todoStore.filter;
 
   addTodo(InputElement input) {

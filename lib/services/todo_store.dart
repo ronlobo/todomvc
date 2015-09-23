@@ -6,12 +6,11 @@ import 'dart:html';
 import 'package:angular2/angular2.dart' show Injectable;
 import 'package:uuid/uuid.dart';
 
-Storage get store => window.localStorage;
-
 @Injectable()
 class TodoStore {
   List<Todo> todos = [];
   String filter;
+  Storage get store => window.localStorage;
 
   TodoStore() {
     if (store['todos-angular2-dart'] != null) {

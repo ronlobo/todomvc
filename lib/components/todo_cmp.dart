@@ -1,10 +1,11 @@
 library todomvc.component.todo_cmp;
 
+import 'dart:async';
 import 'dart:html';
+
 import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 import 'package:todomvc/services/todo_store.dart' show Todo, TodoStore;
-import 'dart:async';
 
 @Component(selector: 'todo-cmp', viewBindings: const [TodoStore])
 @View(templateUrl: 'todo_cmp.html', directives: const [CORE_DIRECTIVES])
@@ -15,9 +16,9 @@ class TodoComponent {
     todoStore.filter = routeParams.get('filter');
   }
 
-	bool get noTodos => todoStore.todos.isEmpty;
-
   String get filter => todoStore.filter;
+
+  bool get noTodos => todoStore.todos.isEmpty;
 
   addTodo(InputElement input) {
     if (input.value.trim().isNotEmpty) {

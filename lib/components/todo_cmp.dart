@@ -4,6 +4,7 @@ import 'dart:html';
 import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 import 'package:todomvc/services/todo_store.dart' show Todo, TodoStore;
+import 'dart:async';
 
 @Component(selector: 'todo-cmp', viewBindings: const [TodoStore])
 @View(templateUrl: 'todo_cmp.html', directives: const [CORE_DIRECTIVES])
@@ -28,7 +29,7 @@ class TodoComponent {
 
   focus(Todo todo, InputElement i) {
     todo.editing = true;
-    i.setSelectionRange(i.selectionStart,i.selectionEnd);
+    Timer.run(() => i.focus());
   }
 
   void removeTodo(Todo todo) {

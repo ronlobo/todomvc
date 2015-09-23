@@ -1,10 +1,16 @@
 # todomvc
 
-ng2 dart version of http://todomvc.com/
+Angular2 Dart implementation of of http://todomvc.com/.
 
-inspired by the angular 2 typescript version:
-https://github.com/tastejs/todomvc/tree/gh-pages/examples/angular2
+### Developping
 
-This is a work in progress.
+```
+npm install --prefix ./web/
+pub get
+pub serve
+dartium http://localhost:8080
+```
 
-Live Demo: http://ng2-dart-samples.github.io/todomvc
+### Live Demo
+
+http://ng2-dart-samples.github.io/todomvc

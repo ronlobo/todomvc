@@ -20,7 +20,7 @@
       <input #i class="edit"  [value]="todo.title"
              (blur)="todoStore.saveEditing(todo, $event.target.value)"
              (keyup.enter)="todoStore.saveEditing(todo, $event.target.value)"
-             (keyup.escape)="todo.editing = false">
+             (keyup.escape)="i.value = todo.title; todo.editing = false; ">
 
     </li>
   </ul>

@@ -5,14 +5,15 @@
 <section class="main">
   <input class="toggle-all" type="checkbox" [checked]="todoStore.allCompleted()" (click)="todoStore.setAllTo($event.target.checked)" *ng-if="todoStore.todos.isNotEmpty">
   <label for="toggle-all">Mark all as complete</label>
-  <ul class="todo-list">
-    <li *ng-for="#todo of filteredTodos" [class.completed]="todo.completed" [class.editing]="todo.editing">
+  <ul #a="" class="todo-list">
+    <li *ng-for="#todo of todoStore.filteredTodos" [class.completed]="todo.completed" [class.editing]="todo.editing">
       <div class="view">
-        <input class="toggle" type="checkbox" (click)="todoStore.toggleCompletion(todo.uid)" [checked]="todo.completed">
-        <label (dblclick)="todo.editTodo()">{{todo.title}}</label>
-        <button class="destroy" (click)="todoStore.remove(todo.uid)"></button>
+        <input class="toggle" type="checkbox" (click)="toggleCompletion(todo)" [checked]="todo.completed">
+        <label (dblclick)="focus(todo, i)">{{todo.title}}</label>
+        <button class="destroy" (click)="removeTodo(todo)"></button>
       </div>
-      <input class="edit" *ng-if="todo.editing" [value]="todo.title" (blur)="saveEditing(todo, $event.target.value)" (keyup.enter)="saveEditing(todo, $event.target.value)" (keyup.escape)="cancelEditing(todo)">
+      <input #i="" class="edit" [value]="todo.title" (blur)="todoStore.saveEditing(todo, $event.target.value)" (keyup.enter)="todoStore.saveEditing(todo, $event.target.value)" (keyup.escape)="todo.editing = false">
+
     </li>
   </ul>
 </section>

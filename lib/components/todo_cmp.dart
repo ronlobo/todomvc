@@ -27,8 +27,7 @@ class TodoComponent {
     }
   }
 
-  focus(Todo todo, InputElement i) {
-    todo.editing = true;
+  focus(InputElement i) {
     Timer.run(() => i.focus());
   }
 

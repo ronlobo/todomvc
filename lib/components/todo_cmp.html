@@ -7,38 +7,30 @@
   <input  class="toggle-all" type="checkbox" [checked]="todoStore.allCompleted()"
          (click)="todoStore.setAllTo($event.target.checked)" *ng-if="todoStore.todos.isNotEmpty">
   <label for="toggle-all">Mark all as complete</label>
-  <ul #a class="todo-list">
+  <ul class="todo-list">
     <li *ng-for="#todo of todoStore.filteredTodos"
         [class.completed]="todo.completed"
         [class.editing]="todo.editing">
       <div class="view">
         <input class="toggle" type="checkbox" (click)="toggleCompletion(todo)"
                [checked]="todo.completed">
-        <label (dblclick)="focus(todo, i)">{{todo.title}}</label>
+        <label (dblclick)="todo.editing = true; focus(i)">{{todo.title}}</label>
         <button class="destroy" (click)="removeTodo(todo)"></button>
       </div>
-      <input #i class="edit"  [value]="todo.title"
+      <input #i class="edit" [value]="todo.title"
              (blur)="todoStore.saveEditing(todo, $event.target.value)"
              (keyup.enter)="todoStore.saveEditing(todo, $event.target.value)"
-             (keyup.escape)="i.value = todo.title; todo.editing = false; ">
-
+             (keyup.escape)="i.value = todo.title; todo.editing = false;">
     </li>
   </ul>
 </section>
 <footer class="footer">
   <span class="todo-count"><strong>{{ todoStore.todos.length }}</strong>
     {{ todoStore.todos.length == 1 ? 'item' : 'items' }} left</span>
-    <!-- TODO needs to be implemented with routing -->
     <ul class="filters">
-        <li>
-            <a [class.selected]="filter.isEmpty" href="#/">All</a>
-        </li>
-        <li>
-            <a [class.selected]="filter == 'active'" href="#/active">Active</a>
-        </li>
-        <li>
-            <a [class.selected]="filter == 'completed'" href="#/completed">Completed</a>
-        </li>
+        <li><a [class.selected]="filter.isEmpty" href="#/">All</a></li>
+        <li><a [class.selected]="filter == 'active'" href="#/active">Active</a></li>
+        <li><a [class.selected]="filter == 'completed'" href="#/completed">Completed</a></li>
     </ul>
   <button class="clear-completed" (click)="todoStore.removeCompleted()">Clear completed</button>
 </footer>

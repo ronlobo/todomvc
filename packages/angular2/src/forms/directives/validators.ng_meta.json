@@ -1,0 +1,28 @@
+{
+  "NgRequiredValidator": {
+    "kind": "type",
+    "value": {
+      "id": "NgRequiredValidator",
+      "selector": "[required][ng-control],[required][ng-form-control],[required][ng-model]",
+      "compileChildren": true,
+      "hostProperties": {},
+      "hostListeners": {},
+      "hostAttributes": {},
+      "properties": [],
+      "readAttributes": [],
+      "type": 0,
+      "exportAs": null,
+      "callOnDestroy": false,
+      "callDoCheck": false,
+      "callOnInit": false,
+      "callOnChanges": false,
+      "callAfterContentInit": false,
+      "callAfterContentChecked": false,
+      "callAfterViewInit": false,
+      "callAfterViewChecked": false,
+      "events": [],
+      "changeDetection": null,
+      "version": 1
+    }
+  }
+}
